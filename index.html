@@ -3,103 +3,431 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evidence Package — Your Name</title>
+  <title>Xinghe Guo — Candidate, Board of the Faculty of Architecture</title>
+  <meta name="description" content="Xinghe Guo — Postgraduate student candidate for the Board of the Faculty of Architecture, The University of Hong Kong, 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #1a1a1a;
-      --muted: #555;
-      --border: #ddd;
-      --bg: #fff;
-      --accent: #2563eb;
+      --ink: #1f2a3c;
+      --navy: #1f3a5f;
+      --navy-deep: #16283f;
+      --red: #a13d2c;
+      --red-deep: #82301f;
+      --muted: #5c5f52;
+      --faint: #93917f;
+      --border: #d9cfb8;
+      --bg: #f6f1e4;
+      --bg-panel: #efe6d3;
+      --cream: #f6f1e4;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                   "Helvetica Neue", Arial, sans-serif;
+      font-family: "Lora", Georgia, "Times New Roman", serif;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.6;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+      line-height: 1.65;
     }
-    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
-    .subtitle { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
-    h2 {
-      font-size: 1.1rem;
+    a { color: var(--red); text-decoration: none; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.75rem; }
+    .display { font-family: "Playfair Display", Georgia, serif; }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--navy);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.75rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.3rem;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
+      color: var(--navy);
     }
-    p, li { margin-bottom: 0.5rem; }
-    ul { padding-left: 1.25rem; }
-    a { color: var(--accent); }
-    .tools { margin-top: 2rem; padding: 1rem; background: #f7f7f7; border-radius: 6px; }
-    .tools h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
-    footer { margin-top: 3rem; font-size: 0.8rem; color: var(--muted); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--ink);
+      font-family: "Lora", serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover { border-bottom-color: var(--red); text-decoration: none; }
+
+    .header-cta { display: flex; align-items: center; gap: 0.9rem; }
+    .icon-btn {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 1px solid var(--navy);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .icon-btn:hover { background: var(--bg-panel); }
+    .icon-btn svg { width: 15px; height: 15px; }
+
+    .btn {
+      display: inline-block;
+      font-family: "Lora", serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.62rem 1.25rem;
+      border-radius: 2px;
+    }
+    .btn-solid { background: var(--red); color: var(--cream); border: 1px solid var(--red); }
+    .btn-solid:hover { background: var(--red-deep); text-decoration: none; }
+    .btn-outline { color: var(--navy); background: transparent; border: 1px solid var(--navy); }
+    .btn-outline:hover { background: var(--bg-panel); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3.25rem;
+      align-items: start;
+      padding: 3.5rem 0 3.5rem;
+    }
+    .hero-photo-frame {
+      border: 2px solid var(--navy);
+      padding: 0.5rem;
+      background: var(--cream);
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      background: var(--bg-panel);
+    }
+    .hero-photo-fallback {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--faint);
+      font-size: 3rem;
+      background: var(--bg-panel);
+    }
+    .ribbon {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: var(--red);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .glance {
+      margin-top: 1.1rem;
+      border: 1px solid var(--border);
+      background: var(--bg-panel);
+      padding: 1rem 1.1rem;
+    }
+    .glance-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .glance dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 0.6rem; }
+    .glance dt {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .glance dd { font-size: 0.85rem; color: var(--ink); }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 {
+      font-size: 3.4rem;
+      line-height: 1.05;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .hero-tagline {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--red);
+      margin-bottom: 1.3rem;
+    }
+    .hero p.lede {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 40rem;
+      margin-bottom: 1.6rem;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .hero-actions .link-arrow {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--navy);
+      border-bottom: 1px solid var(--navy);
+      padding-bottom: 1px;
+    }
+
+    /* Section shell */
+    section.block { padding: 3rem 0; border-top: 1px solid var(--border); }
+    .block-heading {
+      font-size: 2.1rem;
+      color: var(--navy);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 3px solid var(--red);
+      display: inline-block;
+    }
+    .block p.body-text { color: var(--muted); max-width: 42rem; font-size: 1.02rem; }
+
+    /* Contribute list */
+    .simple-list { list-style: none; max-width: 42rem; }
+    .simple-list li {
+      position: relative;
+      padding: 0.6rem 0 0.6rem 1.4rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    .simple-list li:first-child { border-top: none; }
+    .simple-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: 700;
+    }
+    .simple-list li strong { color: var(--ink); }
+
+    /* Experience */
+    .exp-list { list-style: none; max-width: 48rem; }
+    .exp-list li {
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exp-list li:first-child { border-top: none; }
+    .exp-what { font-weight: 600; color: var(--ink); }
+    .exp-where { color: var(--muted); font-size: 0.92rem; }
+    .exp-when { color: var(--faint); font-size: 0.8rem; white-space: nowrap; font-style: italic; }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.1rem; }
+    .tag {
+      font-size: 0.76rem;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.25rem 0.65rem;
+    }
+
+    .kw { color: var(--red); font-weight: 600; }
+    .lede .kw, .body-text .kw { font-style: normal; }
+
+    /* Contact */
+    .contact-row { margin-top: 0.6rem; }
+    .contact-row .big-email {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    footer { border-top: 2px solid var(--navy); padding: 1.75rem 0 2.75rem; }
+    footer p { font-size: 0.8rem; color: var(--faint); }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 2.25rem; }
+      .hero-photo-frame { max-width: 260px; }
+      .hero h1 { font-size: 2.5rem; }
+      .header-inner { padding: 1rem; }
+      nav ul { gap: 1.1rem; }
+    }
   </style>
 </head>
 <body>
 
-  <h1>Project Title</h1>
-  <p class="subtitle">Your Name · ARCH7476 · Semester 2026–27</p>
+  <header id="top">
+    <div class="header-inner">
+      <a class="logo" href="#top">Xinghe Guo</a>
+      <nav>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#why">Why I'm Standing</a></li>
+          <li><a href="#contribute">What I'll Contribute</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a class="icon-btn" href="mailto:u3013908@connect.hku.hk" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+        <a class="btn btn-solid" href="#contact">Support My Nomination</a>
+      </div>
+    </div>
+  </header>
 
-  <h2>Decision Context</h2>
-  <p>
-    What design decision is at stake? What alternatives exist?
-    Why does evidence matter here rather than intuition alone?
-  </p>
+  <main class="wrap">
 
-  <h2>Evidence Summary</h2>
-  <p>
-    What evidence did you gather? Where did it come from?
-    Which sources carried the most weight and why?
-  </p>
-  <ul>
-    <li>Source 1 — what it told you</li>
-    <li>Source 2 — what it told you</li>
-    <li>Source 3 — what it told you</li>
-  </ul>
+    <section class="hero">
+      <div>
+        <div class="hero-photo-frame">
+          <img class="hero-photo" id="profile-photo" src="assets/profile.jpg" alt="Xinghe Guo"
+               onerror="this.style.display='none'; document.getElementById('profile-fallback').style.display='flex';">
+          <div class="hero-photo-fallback" id="profile-fallback">XG</div>
+        </div>
+        <div class="ribbon">2027 Candidate</div>
 
-  <h2>Methodology</h2>
-  <p>
-    What pathway did you choose (spreadsheet / GIS / Python)?
-    What was your workflow? What tools, data, and steps?
-  </p>
+        <div class="glance" id="glance">
+          <div class="glance-title">At a Glance</div>
+          <dl>
+            <dt>Candidate</dt><dd>Xinghe Guo</dd>
+            <dt>Office</dt><dd>Postgraduate Student Member, Board of the Faculty of Architecture</dd>
+            <dt>Term</dt><dd>1 Jan – 31 Dec 2027</dd>
+            <dt>Current Role</dt><dd>PhD Student, Dept. of Architecture, HKU</dd>
+          </dl>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Board of the Faculty of Architecture · HKU</p>
+        <h1 class="display">Xinghe Guo</h1>
+        <p class="hero-tagline">Candidate for Postgraduate Student Member, 2027</p>
+        <p class="lede">
+          Hi, I'm Xinghe — a PhD student in the Department of Architecture at HKU.
+          I'm standing for one of the three <span class="kw">postgraduate student seats</span> on the Board
+          of the Faculty of Architecture, and I'd be glad to have your <span class="kw">nomination</span> and
+          your <span class="kw">support</span> when it goes to a vote.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#why">Why I'm Standing</a>
+          <a class="link-arrow" href="#contact">Get in touch →</a>
+        </div>
+      </div>
+    </section>
 
-  <h2>Key Findings</h2>
-  <p>
-    What did the analysis reveal? What changed compared
-    to your initial assumptions? Include figures if you have them.
-  </p>
-  <!-- To add an image: <img src="figure1.png" alt="Description" style="max-width:100%;"> -->
+    <section class="block" id="why">
+      <h2 class="block-heading display">Why I Am Standing</h2>
+      <p class="body-text">
+        I'm standing because postgraduate students deserve a <span class="kw">direct, dependable voice</span> in how the
+        Faculty of Architecture is run. Having studied and worked across <span class="kw">HKU, Aalto University,
+        and ETH Zürich</span>, I've seen how differently — and how well — a Faculty can support its
+        postgraduate community when students are properly represented. I want to bring that same
+        <span class="kw">clarity and accountability</span> to our Board, as someone who is reachable, consistent, and
+        genuinely invested in the postgraduate experience here.
+      </p>
+    </section>
 
-  <h2>Recommendation</h2>
-  <p>
-    Given the evidence, what do you recommend — and under what conditions?
-    What confidence level is appropriate?
-  </p>
+    <section class="block" id="contribute">
+      <h2 class="block-heading display">What I Hope to Contribute</h2>
+      <ul class="simple-list">
+        <li><strong>A direct channel to the Board</strong> — relaying concerns from full-time and part-time postgraduates and explaining Board decisions back in plain language.</li>
+        <li><strong>Stronger support for research students</strong> — better studio/lab access and clearer funding information for PhD and research-track postgraduates.</li>
+        <li><strong>An international benchmark</strong> — applying what I've seen at HKU, Aalto, and ETH Zürich to how the Faculty supports its postgraduates.</li>
+        <li><strong>A Faculty that keeps pace</strong> — advocating for computational/AI-driven design, sustainable construction, and other emerging methods in postgraduate education.</li>
+      </ul>
+    </section>
 
-  <h2>Limitations</h2>
-  <p>
-    What assumptions did you make? What data was missing?
-    What would you check next if you had more time?
-  </p>
+    <section class="block" id="experience">
+      <h2 class="block-heading display">Experience That Informs My Candidacy</h2>
+      <ul class="exp-list">
+        <li>
+          <div>
+            <div class="exp-what">PhD Student, Architecture</div>
+            <div class="exp-where">The University of Hong Kong</div>
+          </div>
+          <span class="exp-when">2026 –</span>
+        </li>
+        <li>
+          <div>
+            <div class="exp-what">M.A. Architecture, Landscape &amp; Interior Architecture</div>
+            <div class="exp-where">Aalto University, Finland</div>
+          </div>
+          <span class="exp-when">2021 – 2023</span>
+        </li>
+        <li>
+          <div>
+            <div class="exp-what">Exchange, Architecture (D-ARCH)</div>
+            <div class="exp-where">ETH Zürich, Switzerland</div>
+          </div>
+          <span class="exp-when">2022 – 2023</span>
+        </li>
+        <li>
+          <div>
+            <div class="exp-what">Teaching Assistant, Building Technology II</div>
+            <div class="exp-where">Department of Architecture, HKU</div>
+          </div>
+        </li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">Narrative Architecture</span>
+        <span class="tag">Sustainable Timber Structures</span>
+        <span class="tag">AI-Driven &amp; Computational Design</span>
+        <span class="tag">Immersive / Virtual Spatial Perception</span>
+        <span class="tag">Child-Friendly Urban Design</span>
+      </div>
+    </section>
 
-  <div class="tools">
-    <h3>Interactive Tools</h3>
-    <p>
-      <a href="gis-explorer.html">GIS Site Explorer</a> —
-      explore the spatial analysis interactively.
-    </p>
-  </div>
+    <section class="block" id="contact">
+      <h2 class="block-heading display">Get in Touch</h2>
+      <p class="body-text">
+        Questions, concerns, or something you'd like <span class="kw">represented on the Board</span> — I'd like to hear
+        from you, whether or not it goes to a <span class="kw">poll on 11 November 2026</span>.
+      </p>
+      <div class="contact-row">
+        <a class="big-email" href="mailto:u3013908@connect.hku.hk">u3013908@connect.hku.hk</a>
+      </div>
+    </section>
 
-  <footer>
-    ARCH7476: Evidence-Based Generative Design · The University of Hong Kong
+  </main>
+
+  <footer class="wrap">
+    <p>© 2026 Xinghe Guo · Candidate, Board of the Faculty of Architecture, The University of Hong Kong.</p>
   </footer>
 
 </body>
